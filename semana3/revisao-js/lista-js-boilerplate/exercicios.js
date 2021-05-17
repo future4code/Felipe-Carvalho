@@ -53,6 +53,7 @@ function retornaMaiorNumero(array) {
 
 function retornaQuantidadeElementos (array) {
    // implemente sua lógica aqui
+   return array.length;
 }
 
 //Exercício 6
