@@ -2,17 +2,24 @@
 //v
 function inverteArray(array) {
   // implemente sua lógica aqui
-  var arrayInvertido = array.map(function (item, indice, array){
+  const arrayInvertido = array.map((item, indice, array) =>{
      return array[array.length - indice - 1];
   })
-  console.log (arrayInvertido)
+  return arrayInvertido
 }
 
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
-
+   const novoArray = array.filter((number) => {
+      if(number % 2 === 0){
+         return number;
+      }
+   }).map((number) => {
+      return number * number;
+   })
+   return novoArray;
 }
 
 //Exercício 3
