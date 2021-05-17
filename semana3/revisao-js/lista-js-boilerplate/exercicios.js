@@ -1,5 +1,5 @@
 //Exercício 1
-
+//v
 function inverteArray(array) {
   // implemente sua lógica aqui
   var arrayInvertido = array.map(function (item, indice, array){
