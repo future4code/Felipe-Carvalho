@@ -78,12 +78,27 @@ function retornaExpressoesBooleanas() {
 
 function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
+   const numerosPares = [];
+   for(let i = 0; i < n; i++){
+      let numeros = i * 2;
+      numerosPares.push(numeros);
+      return numerosPares
+   }
 }
 
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
   // implemente sua lógica aqui
+  let triangulo;
+  if(a === b && b === c) {
+     triangulo = "Equilátero"
+  }else if( a !== b && b !== c){
+     triangulo = "Escaleno"   
+  }else{
+     triangulo = "Isósceles"
+  }
+  return triangulo
 }
 
 // Exercício 9
