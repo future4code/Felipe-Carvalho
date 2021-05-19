@@ -1,0 +1,41 @@
+#cabecalho {
+    background: #33353a;
+    padding: 10px;
+}
+
+#cabecalho p {
+    color: white;
+}
+
+#cabecalho a {
+    color: white;
+}
+
+h1 {
+    color: rgb(255, 158, 11);
+}
+
+#corpo img {
+    width: 1200px;
+    height: 400px;
+    padding-left: 60px;
+}
+
+#rodape {
+    background: #33353a;
+    color: white;
+}
+
+#rodape p {
+    display: inline;
+}
+
+#rodape img {
+    width: 45px;
+    height: 45px;
+}
+
+.produtos img {
+    width: 75px;
+    height: 150px;
+}
