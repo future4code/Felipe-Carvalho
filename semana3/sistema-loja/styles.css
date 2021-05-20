@@ -1,3 +1,7 @@
+body {
+    background: rgb(204, 204, 204);
+}
+
 #cabecalho {
     background: #33353a;
     padding: 10px;
@@ -26,8 +30,10 @@ h1 {
     color: white;
 }
 
-#rodape p {
+#rodape .data {
     display: inline;
+    position: relative;
+    top: 25px;
 }
 
 #rodape img {
@@ -38,4 +44,19 @@ h1 {
 .produtos img {
     width: 75px;
     height: 150px;
+}
+
+.redes-sociais {
+    text-align: right;
+}
+
+#rodape .redes-sociais>p {
+    display: inline;
+    text-align: right;
+    position: relative;
+    bottom: 25px;
+}
+
+.menu {
+    text-align: right;
 }
