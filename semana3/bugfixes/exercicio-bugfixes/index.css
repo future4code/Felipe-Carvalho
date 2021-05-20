@@ -133,3 +133,8 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
+
+.container-da-tabela {
+    text-align: right;
+    margin: auto;
+}
