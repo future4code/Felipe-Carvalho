@@ -71,6 +71,10 @@ div img {
     color: white;
 }
 
+div .secao {
+    padding-top: 200px;
+}
+
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
