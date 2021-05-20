@@ -155,6 +155,12 @@ td button:hover {
     background-color: #635a3d
 }
 
+.voltar {
+    position: relative;
+    top: 75px;
+    text-align: center;
+}
+
 .container-da-tabela {
     text-align: center;
     margin: auto;
