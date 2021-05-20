@@ -135,6 +135,11 @@ td button {
 }
 
 .container-da-tabela {
-    text-align: right;
+    text-align: center;
     margin: auto;
+}
+
+.container-da-tabela img {
+    width: 50px;
+    background: white;
 }
