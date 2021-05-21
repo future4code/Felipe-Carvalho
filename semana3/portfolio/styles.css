@@ -1,0 +1,110 @@
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+}
+
+/* Header */
+
+.header {
+    background: #110429;
+    padding: 20px 0;
+}
+
+.menu-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.menu-container::after,
+.menu-container::before {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    width: 80px;
+    float: left;
+}
+
+.nav {
+    float: right;
+}
+
+.nav li {
+    display: inline-block;
+    padding: 20px;
+}
+
+.nav a {
+    display: block;
+    padding: 20px 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.125em;
+    transition: 0.5s;
+
+}
+
+.nav a:hover {
+    display: inline-block;
+    padding: 20px;
+    background: white;
+    color: #F68400;
+    font-size: 1.25em;
+    border-radius: 20px;
+}
+
+
+.fix a {
+    color: #F68400;
+    border-radius: none;
+    border-bottom: 1px solid #F68400;
+}
+
+/* Introdução */
+
+.intro {
+    padding: 50px;
+    background: #110429;
+
+}
+
+.text-intro {
+    float: left;
+    text-align: center;
+    padding: 50px;
+    margin: auto 100px;
+}
+
+.text-intro h1 {
+    color: #F68400;
+    font-size: 40px;
+
+}
+
+.img-intro img {
+    width: 160px;
+    border: 3px solid #F68400;
+    border-radius: 100%;
+    padding: 4px;
+}
+
+.color {
+    color: #F68400;
+}
+
+.section {
+    background: #110429;
+
+}
+
+.footer {
+    background: #F68400;
+    padding: 40px;
+}
