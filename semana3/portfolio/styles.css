@@ -6,6 +6,8 @@
 
 body {
     color: white;
+    background: #110429;
+
 }
 
 /* Header */
@@ -54,10 +56,12 @@ body {
 .nav a:hover {
     display: inline-block;
     padding: 20px;
-    background: white;
+    background: #6E2FDE;
     color: #F68400;
     font-size: 1.25em;
     border-radius: 20px;
+    border-bottom: 2px solid #F68400;
+
 }
 
 
@@ -79,13 +83,17 @@ body {
     float: left;
     text-align: center;
     padding: 50px;
-    margin: auto 100px;
+    margin: auto 80px;
 }
 
 .text-intro h1 {
     color: #F68400;
     font-size: 40px;
 
+}
+
+.text-intro {
+    font-size: 1.25em;
 }
 
 .img-intro img {
@@ -105,6 +113,6 @@ body {
 }
 
 .footer {
-    background: #F68400;
+    background: #6E2FDE;
     padding: 40px;
 }
