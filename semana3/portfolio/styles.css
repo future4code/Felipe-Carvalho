@@ -1,7 +1,12 @@
 /* Estilos gerais */
+
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Mate SC', serif;
 }
 
 body {
@@ -49,7 +54,7 @@ body {
     text-decoration: none;
     color: white;
     font-size: 1.125em;
-    transition: 0.5s;
+    transition: 0.8s;
 
 }
 
@@ -69,6 +74,12 @@ body {
     color: #F68400;
     border-radius: none;
     border-bottom: 1px solid #F68400;
+    background: #6E2FDE;
+    font-size: 1.25em;
+    border-radius: 20px;
+    border-bottom: 2px solid #F68400;
+
+
 }
 
 /* Introdução */
