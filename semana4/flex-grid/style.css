@@ -1,0 +1,61 @@
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#page-container {
+    display: grid;
+    grid-template-rows: 75px 1fr 50px;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: mediumvioletred;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    align-items: center;
+    padding: 15px;
+}
+
+
+
+.buttom-header {
+    grid-column: 3 / 4;
+}
+
+
+/*  Navegação  */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+nav {
+    background: #f2d0e0;
+
+}
+
+
+#nav-menu img {
+    height: 50px;
+}
+
+#descricao {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+section img {
+    width: 150px;
+}
+
+/* Footer */
+
+footer {
+    background: mediumvioletred;
+}
