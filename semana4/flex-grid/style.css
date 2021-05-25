@@ -21,6 +21,9 @@ header {
 }
 
 
+header img {
+    width: 40px;
+}
 
 .buttom-header {
     grid-column: 3 / 4;
@@ -39,23 +42,47 @@ nav {
 
 }
 
+#nav-menu a {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-decoration: none;
+    outline: none;
+    padding: 10px;
+    justify-items: center;
+    align-items: center;
+    color: black;
+    list-style: none;
+}
+
+
 
 #nav-menu img {
-    height: 50px;
+    height: 40px;
+
 }
 
 #descricao {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
 }
 
 
-section img {
+
+.card-bolo img {
     width: 150px;
+}
+
+.card-bolo {
+    margin: 15px;
+    box-shadow: 10px 5px 5px silver;
 }
 
 /* Footer */
 
 footer {
     background: mediumvioletred;
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }
