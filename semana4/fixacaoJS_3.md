@@ -1,3 +1,4 @@
+ˋˋˋ
 function criarArrayNomesAnimais() {
     const animais = [
       { nome: "Cachorro", classificacao: "mamífero" },
@@ -9,9 +10,13 @@ function criarArrayNomesAnimais() {
 
  // Escreva seu código aqui
 
+
  const mapAnimais = animais.map((item) => {
      return item.nome;
  })
 
  return mapAnimais;
+ 
 }
+
+ˋˋˋ
