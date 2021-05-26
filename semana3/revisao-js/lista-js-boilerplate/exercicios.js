@@ -1,11 +1,4 @@
 //Exercício 1
-
-function inverteArray(array) {
-  // implemente sua lógica aqui
-  var arrayInvertido = array.map(function (item, indice, array){
-     return array[array.length - indice - 1];
-  })
-  console.log (arrayInvertido)
 }
 
 //Exercício 2
@@ -26,6 +19,7 @@ function retornaNumerosPares (array) {
 
 function retornaMaiorNumero(array) {
    // implemente sua lógica aqui
+
 }
 
 //Exercício 5
