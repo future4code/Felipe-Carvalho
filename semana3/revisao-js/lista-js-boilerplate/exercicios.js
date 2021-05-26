@@ -1,128 +1,55 @@
 //Exercício 1
-//v
-function inverteArray(array) {
-  // implemente sua lógica aqui
-  const arrayInvertido = array.map((item, indice, array) =>{
-     return array[array.length - indice - 1];
-  })
-  return arrayInvertido
 }
 
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
-   const novoArray = array.filter((number) => {
-      if(number % 2 === 0){
-         return number;
-      }
-   }).map((number) => {
-      return number * number;
-   })
-   return novoArray;
+
 }
 
 //Exercício 3
 
 function retornaNumerosPares (array) {
    // implemente sua lógica aqui
-   const arrayPar = []
-   for(number of array){
-      if (number % 2 === 0){
-         arrayPar.push(number);
-      }
-   }
-   return arrayPar;
+
 }
 
 //Exercício 4
 
 function retornaMaiorNumero(array) {
    // implemente sua lógica aqui
-   let maior = 0;
-   let numero;
-   for(numero of array){
-      if(numero > maior){
-         maior = numero;
-      }
-   }
-  return maior;
+
 }
 
 //Exercício 5
 
 function retornaQuantidadeElementos (array) {
    // implemente sua lógica aqui
-   return array.length;
 }
 
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
    // implemente sua lógica aqui
-   const booleano1 = true
-   const booleano2 = false
-   const booleano3 = !booleano2 
-   const booleano4 = !booleano3 
-   const booleanos = [
-      booleano1 && booleano2 && !booleano4,
-      (booleano1 && booleano2) || !booleano3,
-      (booleano2 || booleano3) && (booleano4 || booleano1),
-      !(booleano2 && booleano3) || !(booleano1 && booleano3),
-      !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3) 
-   ]
-   return booleanos;
 }
 
 //Exercício 7
 
 function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
-   const numerosPares = [];
-   for(let i = 0; i < n; i++){
-      let numeros = i * 2;
-      numerosPares.push(numeros);
-      return numerosPares[i];
-   }
 }
 
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
   // implemente sua lógica aqui
-  let triangulo;
-  if(a === b && b === c) {
-     triangulo = "Equilátero"
-  }else if( a !== b && b !== c){
-     triangulo = "Escaleno"   
-  }else{
-     triangulo = "Isósceles"
-  }
-  return triangulo
 }
 
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
    // implemente sua lógica aqui
-   let maior;
-   let menor;
-   if(num1 > num2){
-      maior = num1;
-      menor = num2
-   }else{
-      maior = num2;
-      menor = num1
-   }
-   let divisivel = (maior % menor) === 0;
-   let numeroDiferenca = maior - menor;
-   const objetoComparaDoisNumeros = {
-      maiorNumero: maior,
-      maiorDivisivelporMenor: divisivel,
-      diferenca: numeroDiferenca
-   }
-   console.log(objetoComparaDoisNumeros)
-   return objetoComparaDoisNumeros;
 }
 
 // Exercício 10
@@ -141,49 +68,18 @@ function ordenaArray(array) {
 
 function filmeFavorito() {
    // implemente sua lógica aqui
-   const filmeAstrodev = {
-      nome: "O Diabo Veste Prada",
-      ano: 2006,
-      diretor: "David Frankel",
-      atores: [
-         "Meryl Streep", 
-         "Anne Hathaway", 
-         "Emily Blunt", 
-         "Stanley Tucci"
-      ]
-   }
-   return filmeAstrodev;
 }
 
 // Exercício 13
 
 function imprimeChamada() {
    // implemente sua lógica aqui
-   const filmeAstrodev = {
-      nome: "O Diabo Veste Prada",
-      ano: 2006,
-      diretor: "David Frankel",
-      atores: [
-         "Meryl Streep", 
-         "Anne Hathaway", 
-         "Emily Blunt", 
-         "Stanley Tucci"
-      ]
-   }
-   return `Venha assistir ao filme ${filmeAstrodev.nome}, de ${filmeAstrodev.ano}, dirigido por ${filmeAstrodev.diretor} e estrelado por ${filmeAstrodev.atores[0]}, ${filmeAstrodev.atores[1]}, ${filmeAstrodev.atores[2]}, ${filmeAstrodev.atores[3]}.`
 }
 
 // Exercício 14
 
 function criaRetangulo(lado1, lado2) {
    // implemente sua lógica aqui
-   const informacoesRetangulo = {
-      largura: lado1,
-      altura: lado2,
-      perimetro: (2 *(lado1 + lado2)),
-      area: (lado1 * lado2)
-   }
-   return informacoesRetangulo;
 }
 
 // Exercício 15
