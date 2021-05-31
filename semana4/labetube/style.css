@@ -1,0 +1,89 @@
+/*  Estilos Gerias */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 60px 1fr 40px;
+}
+
+/* Header */
+
+header {
+    background: #45505c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+h1 {
+    color: #ff8000;
+}
+
+.logo-texto {
+    display: flex;
+}
+
+.logo-texto a {
+    text-decoration: none;
+}
+
+.logo-texto img {
+    width: 40px;
+    padding: 0 10px;
+}
+
+/* Main */
+
+#video-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 25px;
+    justify-items: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.video-section video {
+    width: 250px;
+}
+
+.video-section a {
+    text-decoration: none;
+    color: #323a40;
+}
+
+/* Footer */
+footer {
+    background: #45505c;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    color: #ff8000;
+}
+
+
+/* Pagina de video */
+
+#container-video-page {
+    display: grid;
+    justify-content: center;
+}
+
+.video-titulo h1 {
+    margin: 25px 0;
+}
+
+#container-video-page video {
+    width: 690px;
+}

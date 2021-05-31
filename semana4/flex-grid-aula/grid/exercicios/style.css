@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr 200px;
+  grid-template-rows: 70px 1fr 70px;
+}
+
+header {
+  background-color: #F9B24D;
+  grid-column: 1/ -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+img {
+  width: 100px;
+}
+
+footer {
+  background-color: #333;
+  grid-column: 1/ -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  background-color: rebeccapurple;
+}
+
+section {
+  background-color: salmon;
+}
