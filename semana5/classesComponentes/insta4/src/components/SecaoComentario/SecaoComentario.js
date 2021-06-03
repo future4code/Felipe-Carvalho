@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const CommentContainer = styled.div`
@@ -12,20 +12,23 @@ const InputComentario = styled.input`
     margin-right: 5px;
 `
 
-export class SecaoComentario extends Component {
+export class SecaoComentario extends React.Component {
 	state = {
-
+		valorComentario: ''
 	}
 
-	onChangeComentario() {
-
+	onChangeComentario = (event) => {
+		this.setState({ 
+			valorComentario: event.target.value 
+		})
 	}
 
 	render() {
+		console.log()
 		return <CommentContainer>
 			<InputComentario
 				placeholder={'Comentário'}
-				value={''}
+				value={this.state.valorComentario}
 				onChange={this.onChangeComentario}
 			/>
 			<button onClick={this.props.aoEnviar}>Enviar</button>

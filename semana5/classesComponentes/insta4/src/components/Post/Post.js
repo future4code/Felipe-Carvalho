@@ -49,7 +49,18 @@ class Post extends React.Component {
   }
 
   onClickCurtida = () => {
-    console.log('Curtiu!')
+    this.setState({
+      curtido: !this.state.curtido
+    })
+    if(!this.state.curtido === true){
+      this.setState({
+        numeroCurtidas: this.state.numeroCurtidas +1
+      })
+    }else if(!this.state.curtido === false){
+      this.setState({
+        numeroCurtidas: this.state.numeroCurtidas -1
+      })
+    }
   }
 
   onClickComentario = () => {
@@ -82,11 +93,11 @@ class Post extends React.Component {
 
     return <PostContainer>
       <PostHeader>
-        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{this.props.nomeUsuario}</p>
       </PostHeader>
 
-      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
+      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'} onDoubleClick={this.onClickCurtida}/>
 
       <PostFooter>
         <IconeComContador
