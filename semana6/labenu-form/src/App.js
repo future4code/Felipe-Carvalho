@@ -19,6 +19,7 @@ export class App extends React.Component {
   }
 
   renderizaEtapa = () => {
+    
     switch (this.state.etapa) {
       case 1 :
         return <Etapa1 />;
