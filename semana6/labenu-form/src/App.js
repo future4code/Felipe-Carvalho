@@ -4,14 +4,18 @@ import Etapa2 from "./components/Etapa2"
 import Etapa3 from "./components/Etapa3"
 import Final from "./components/Final"
 import styled from 'styled-components'
+import GlobalStyle from './globalStyles';
 
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
+  height: 100vh;
+  background-color: #150c42;
 `
+
+
 
 export class App extends React.Component {
   state = {
@@ -19,7 +23,7 @@ export class App extends React.Component {
   }
 
   renderizaEtapa = () => {
-    
+
     switch (this.state.etapa) {
       case 1 :
         return <Etapa1 />;
@@ -35,14 +39,27 @@ export class App extends React.Component {
   }
 
   irParaProximaEtapa = () => {
-    return this.setState({etapa: this.state.etapa +1})
+    this.setState({etapa: this.state.etapa +1})
+    return 
   }
 
   render() {
     return(
       <AppContainer >
+        <GlobalStyle />
         {this.renderizaEtapa()}
-        <button type="button" onClick={this.irParaProximaEtapa}>Próxima etapa</button>
+
+        {this.state.etapa < 4 ? 
+        <button 
+        type="button" 
+        onClick={this.irParaProximaEtapa}
+        >
+          Próxima etapa
+        </button> 
+        :
+         ""
+      }  
+        
       </AppContainer>
     )
   }

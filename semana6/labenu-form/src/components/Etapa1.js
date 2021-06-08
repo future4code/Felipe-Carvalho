@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 
 
 function Etapa1() {
     return(
         <div>
-            <h1>Etapa 1 - DADOS GERAIS</h1>
+            <h2>Etapa 1 - Dados Gerais</h2>
             <ol>
                 <li>
                      <p>Qual o seu nome?</p> 

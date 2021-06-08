@@ -5,7 +5,7 @@ import React from "react";
 function Etapa3() {
     return(
         <div>
-            <h2>Etapa 3 - INFORMAÇÕES GERAIS DE ENSINO</h2>
+            <h2>Etapa 3 - Informações gerais de ensino</h2>
             <ol>
                 <li>
                      <p>Por que você não terminou um curso de graduação?</p> 
