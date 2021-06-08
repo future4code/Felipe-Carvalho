@@ -15,7 +15,7 @@ const Tarefa = styled.li`
 const InputsContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
-  gap: 10px;
+  gap: 10px; 
 `
 
 class App extends React.Component {
