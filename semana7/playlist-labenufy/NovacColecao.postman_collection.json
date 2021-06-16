@@ -1,0 +1,23 @@
+{
+	"info": {
+		"_postman_id": "999865cd-caff-4596-a7b6-831302cce29b",
+		"name": "NovacColecao",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "minha-requisicao",
+					"host": [
+						"minha-requisicao"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
