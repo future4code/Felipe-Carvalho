@@ -25,7 +25,8 @@ class App extends React.Component {
   state = {
     listNames: [],
     inputName: "",
-    inputEmail: ""
+    inputEmail: "",
+    render: true
   }
 
   componentDidMount() {
@@ -39,6 +40,10 @@ class App extends React.Component {
   onChangeInputEmail = ((event) => {
     this.setState({inputEmail: event.target.value})
   })
+
+  changeRender = () => {
+    this.setState({render: !this.state.render})
+  }
 
   getList = () => {
     axios.get(url, headers)
@@ -70,17 +75,30 @@ class App extends React.Component {
 
   render(){
 
+    let renderComponent 
+    if(this.state.render ) {
+      renderComponent = <Register 
+        inputName = {this.state.inputName}
+        onChangeInputName = {this.onChangeInputName}  
+        inputEmail = {this.state.inputEmail}
+        onChangeInputEmail = {this.onChangeInputEmail}
+        createUser = {this.createUser}
+      />
+    }else{
+      renderComponent = <List listNames = {this.state.listNames}/>
+    }
+      
+    
+
     return (
       <div>
         <GlobalStyle /> 
-        <Register 
-          inputName = {this.state.inputName}
-          onChangeInputName = {this.onChangeInputName}  
-          inputEmail = {this.state.inputEmail}
-          onChangeInputEmail = {this.onChangeInputEmail}
-          createUser = {this.createUser}
-        />
-        <List listNames = {this.state.listNames}/>
+        <button 
+          onClick={this.changeRender}
+        >
+          clique aqui
+        </button>
+        {renderComponent}
         
       </div>
     );
