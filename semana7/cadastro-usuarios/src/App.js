@@ -21,11 +21,19 @@ const GlobalStyle = createGlobalStyle`
  button {
    background-color: #829CFA;
    color: #64697A;
+   padding: 5px;
+   margin: 5px;
+   border-radius: 30px;
+   &:hover {
+     background-color: #8E95AD;
+     color: #64697A;
+   } 
  }
 `
 
 const ButtonApp = styled.button`
-  margin-bottom: 150px;
+
+  margin: 75px;
 `
 
 
@@ -48,6 +56,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getList()
+    console.log(this.state.listNames)
   }
 
   onChangeInputName = (event) => {

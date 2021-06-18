@@ -7,7 +7,7 @@ const RegisterContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 35px;
-    border: 1px solid black;
+    border: 1px solid #AD8E37;
     background: #4F5361;
 `
 

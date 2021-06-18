@@ -13,7 +13,7 @@ const ListContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 40vw;
-    border-bottom: 1px solid #BCC5E6;
+    border-bottom: 1px solid #AD8E37;
 `
 
 
