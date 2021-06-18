@@ -2,43 +2,55 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PlaylistContainer = styled.div` 
-    background-color: #80cad0;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #3d5682;
+    box-shadow: 0.5em 0.8em 1em #3d5682;
     border-radius: 10px;
-    width: 60%;
-    height: 40%;
-    color: white;
-    
-    h2{
-        color:white
-    }
+    padding: 15px;
+   
 `
-const PlaylisCardLabel = styled.label`
-    padding: 10px;
+const ComponentsPlaylistDiv = styled.div` 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+`
+
+const ButtonPlaylist = styled.button` 
+  width: 7em;
+  height: 7em;
+  background-color: #22bfbc;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  box-shadow: 0.3em 0.3em 0.3em #3d5682;
+  
+  &:hover{
+    background: #356DA4;
+  }
 `
 
 
 export default class PlaylistCard extends React.Component {
   render() {
        
-      console.log(this.props.playlistLists.list)
-       const componentesList = this.props.playlistLists.map((playlist) => {
-        return (
-            <p>{playlist.list.name}</p>
+       const componentPlaylist = this.props.playlistLists.map((playlist) => {
+        return (         
+            <ButtonPlaylist key={playlist.id}>{playlist.name}</ButtonPlaylist>          
         )
       })
       
       
     return (
         <div>
-            <h1>Playlist</h1>
+            <h3>Playlist</h3>
             <PlaylistContainer > 
                 <h2>Visualize as playlists</h2>
-                
+                <ComponentsPlaylistDiv>
+                  {componentPlaylist}
+                </ComponentsPlaylistDiv>
             </PlaylistContainer>
         </div>
       

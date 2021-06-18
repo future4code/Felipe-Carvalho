@@ -8,36 +8,43 @@ const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    background-color: #e3f5ff;
+    width: 100%;
 `
 
 const MenuContainer = styled.div` 
-  border-right: 1px solid #80cad0;
+  background-color: #ffff;
+  border-right: 1px solid #9796c4;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `
 
 const ButtonMenu = styled.button` 
-  background-color: #1c1543;
-  color: white; 
-  border: 1px solid #b5d7ce;
+  background-color: #ffff ;
+  color: #68658d; 
+  border: none;
   height: 10%;
   width: 80%;
   border-radius: 10px;
   margin: 5px;
-  padding: 5px;
 `
 
 export default class Main extends React.Component {
   state = {
     render: "Playlists",
-    playlistLists:  []
+    playlistLists:  [],
+    inputPlaylist: ""
   }
 
   componentDidMount() {
     this.getPlaylistList()
+  }
+
+  onChangeInputPlaylist = (event) => {
+    this.setState({inputPlaylist: event.target.value})
   }
 
   changeRender = (event) => {
@@ -51,15 +58,38 @@ export default class Main extends React.Component {
         Authorization: "felipe-sou-molina"
       }
     }
-    axios.get(url, headers)
+    axios
+      .get(url, headers)
       .then((res) => {
-        this.setState({playlistLists: res.data.result})
+        console.log(res.data.result.list)
+        this.setState({playlistLists: res.data.result.list})
       })
       .catch((err) => {
         console.log(err.data)
       })
   }
 
+  postPlaylist = () => {
+    const body = {
+      name: this.state.inputPlaylist
+    };
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists";
+    const headers = {
+      headers: {
+        Authorization: "felipe-sou-molina"
+      }
+    }
+    axios
+      .post(url, body, headers)
+      .then(() => {
+        alert("Playlist criada com sucesso")
+        this.postPlaylist()
+        this.setState({inputPlaylist: ""})
+      })
+      .catch((err) => {
+        alert(err.response.data.message)
+      })
+  }
   
 
   render() {
@@ -74,7 +104,11 @@ export default class Main extends React.Component {
         break;
       case "NewPlaylists":
         renderComponent = 
-          <CreatePlaylistCard />
+          <CreatePlaylistCard 
+          postPlaylist = {this.postPlaylist}
+          inputPlaylist = {this.state.inputPlaylist}
+          onChangeInputPlaylist = {this.onChangeInputPlaylist}
+          />
         break;
       default:
         <p>ocorreu um erro</p>
