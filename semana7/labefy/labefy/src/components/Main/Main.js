@@ -8,23 +8,24 @@ const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #e3f5ff;
+    background-color: #0a0b1b;
     width: 100%;
 `
 
 const MenuContainer = styled.div` 
-  background-color: #ffff;
-  border-right: 1px solid #9796c4;
+  background-color: #0a0b1b;
+  border-right: 1px solid #6fa8d6;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 `
 
+
+
 const ButtonMenu = styled.button` 
-  background-color: #ffff ;
-  color: #68658d; 
+  background-color: #0a0b1b ;
+  color: #6fa8d6; 
   border: none;
   height: 10%;
   width: 80%;
@@ -49,6 +50,7 @@ export default class Main extends React.Component {
 
   changeRender = (event) => {
     this.setState({render: event.target.value})
+    this.getPlaylistList()
   }
 
   getPlaylistList = () => {
@@ -61,11 +63,10 @@ export default class Main extends React.Component {
     axios
       .get(url, headers)
       .then((res) => {
-        console.log(res.data.result.list)
         this.setState({playlistLists: res.data.result.list})
       })
       .catch((err) => {
-        console.log(err.data)
+        alert(err.response.data.message)
       })
   }
 
@@ -90,7 +91,25 @@ export default class Main extends React.Component {
         alert(err.response.data.message)
       })
   }
-  
+
+
+  deletePlaylist = (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
+    const headers = {
+      headers: {
+        Authorization: "felipe-sou-molina"
+      }
+    }
+    axios
+    .delete(url, headers)
+    .then((res) => {
+      alert("Playlist Deletada com sucesso")
+      this.getPlaylistList()
+    })
+    .catch((err) => {
+      alert(err.response.data.message)
+    })
+  }
 
   render() {
 
@@ -98,9 +117,10 @@ export default class Main extends React.Component {
     switch (this.state.render) {
       case "Playlists": 
         renderComponent = 
-          <PlaylistCard 
-            playlistLists = {this.state.playlistLists}
-          />        
+            <PlaylistCard 
+              playlistLists = {this.state.playlistLists}
+              deletePlaylist = {this.deletePlaylist}
+            />      
         break;
       case "NewPlaylists":
         renderComponent = 
@@ -117,7 +137,6 @@ export default class Main extends React.Component {
     return (
       <>
         <MenuContainer >
-            <h2>Menu</h2>
             <h3>Playlists</h3>
             <ButtonMenu
               value= "Playlists"

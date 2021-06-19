@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PlaylistContainer = styled.div` 
-    background: #ffffff;
+    background: #0f203e;
     display: flex;
     flex-direction: column;
     align-items: center;

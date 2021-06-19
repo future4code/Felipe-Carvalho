@@ -13,14 +13,18 @@ const ArimaFont = css`
 const GlobalStyle = createGlobalStyle`
 ${ArimaFont}
 body{
-  background-color: #ffffff;
+  background-color: #0a0b1b;
   font-family: 'Arima Madurai', cursive;
   width: 100vw;
 
 
 }
-h1, h2, h3{
-  color: #3c336a;
+h1 {
+  color: #8cc0ff;
+}
+
+h2, h3, p, label{
+  color: white;
 }
 
 `
@@ -31,7 +35,7 @@ const Container = styled.div`
 
 const ContainerMain = styled.div` 
   display: grid;
-  grid-template-columns: 15% 1fr;
+  grid-template-columns: 10% 1fr;
 `
 
 export default class App extends React.Component {
