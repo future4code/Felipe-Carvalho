@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 // Do vizualize as playlists
 const PlaylistContainer = styled.div` 
@@ -22,7 +23,6 @@ const PlaylistsMusicsContainer = styled.div`
 
 const ComponentsPlaylistDiv = styled.div` 
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 `
@@ -85,8 +85,12 @@ const ButtonExcluirPlaylist = styled.button`
 export default class PlaylistCard extends React.Component {
   state = {
     playlistsName: "Escolha uma playlist ",
-    playlists: []
+    playlists: [],
+    playlistsId: [],
+    playlistMusicsName: [],
+    renderMusicsPlaylists: []
   }
+  
 
   onChangePlaylistsName = (event) => {
     this.setState(
@@ -99,13 +103,53 @@ export default class PlaylistCard extends React.Component {
     this.setState(
         {playlistsId: event.target.value}
       ) 
-      console.log(event.target.value)
   }
 
-  onClickOnChange = (event) => {
-    this.onChangePlaylistsName(event);
-    this.onChangePlaylistsId(event);
+  
+  
+  getMusicsPlaylist = (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`
+    const headers = {
+      headers: {
+        Authorization: "felipe-sou-molina"
+      }
+    }
+    axios
+    .get(url, headers)
+    .then((res) => {
+      this.setState({ 
+        playlistMusicsName: res.data.result.tracks, 
+        renderMusicsPlaylists:this.state.playlistMusicsName.map((musics) => {
+          return (
+            <ButtonMusics 
+              key={musics.id}
+            >
+              {musics.name} - {musics.artist}
+            </ButtonMusics>
+          )
+        })
+      })
+    })
+    .catch(() => {
+      console.log("erro")
+    })
   }
+
+  
+
+  renderMusics() {
+    return this.state.renderMusicsPlaylists
+    
+  } 
+
+
+  onClickButton = (event) => {
+    this.onChangePlaylistsName(event);
+    this.onChangePlaylistsId(event)
+    this.getMusicsPlaylist(event.target.value)
+  }
+
+
 
   render() {
 
@@ -116,15 +160,17 @@ export default class PlaylistCard extends React.Component {
     return (       
         <ButtonPlaylist 
           key={playlist.id}
-          onClick= {this.onClickOnChange}
+          onClick= {this.onClickButton}
           value= {playlist.id}
         >
             {playlist.name}
         </ButtonPlaylist>        
       )
     })
+
   
-      
+    
+
     return (
         <div>
           <h3>Playlists</h3>
@@ -150,8 +196,8 @@ export default class PlaylistCard extends React.Component {
                     </ButtonExcluirPlaylist>
                   </div>
                 </TituloDelete>
-                <ButtonMusics>Sweet dreams - nome do artista</ButtonMusics>
-                <ButtonMusics>Sweet dreams - nome do artista</ButtonMusics>
+                {this.state.renderMusicsPlaylists}
+                <button onClick={() => this.getMusicsPlaylist(this.state.playlistsId)}>Adcionar música</button>
               </MusicContainer>
             </ div> 
           </ PlaylistsMusicsContainer>

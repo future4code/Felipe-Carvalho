@@ -111,6 +111,9 @@ export default class Main extends React.Component {
     })
   }
 
+  
+
+  
   render() {
 
     let renderComponent;
@@ -125,9 +128,9 @@ export default class Main extends React.Component {
       case "NewPlaylists":
         renderComponent = 
           <CreatePlaylistCard 
-          postPlaylist = {this.postPlaylist}
-          inputPlaylist = {this.state.inputPlaylist}
-          onChangeInputPlaylist = {this.onChangeInputPlaylist}
+            postPlaylist = {this.postPlaylist}
+            inputPlaylist = {this.state.inputPlaylist}
+            onChangeInputPlaylist = {this.onChangeInputPlaylist}
           />
         break;
       default:
