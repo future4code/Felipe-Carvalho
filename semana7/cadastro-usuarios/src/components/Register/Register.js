@@ -7,9 +7,8 @@ const RegisterContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 35px;
-    border: 1px solid black;
+    border: 1px solid #AD8E37;
     background: #4F5361;
-    margin-top: 200px;
 `
 
 const RegisterLabel = styled.label`
@@ -30,12 +29,16 @@ const ButtonStyle = styled.button`
     height: 2rem;
 `
 
+
 class Register extends React.Component {
+
+    
 
     render() {
         return (
             <div>
                 <RegisterContainer>
+                    <h2>Cadastro de usuários</h2>
                     <RegisterLabel htmlFor="">
                         Nome: 
                         <InputStyle 
