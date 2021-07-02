@@ -82,6 +82,13 @@ const ButtonExcluirPlaylist = styled.button`
 }
 `
 
+//adicionar musicas
+const addContainer = styled.div ` 
+  display: flex;
+  flex-direction: column;
+
+`
+
 export default class PlaylistCard extends React.Component {
   state = {
     playlistsName: "Escolha uma playlist ",
@@ -94,18 +101,16 @@ export default class PlaylistCard extends React.Component {
 
   onChangePlaylistsName = (event) => {
     this.setState(
-        {playlistsName: event.target.outerText}
+        {
+          playlistsName: event.target.outerText,
+          playlistsId: event.target.value
+        }
       ) 
   }
 
   
-  onChangePlaylistsId = (event) => {
-    this.setState(
-        {playlistsId: event.target.value}
-      ) 
-  }
-
   
+
   
   getMusicsPlaylist = (id) => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`
@@ -114,22 +119,25 @@ export default class PlaylistCard extends React.Component {
         Authorization: "felipe-sou-molina"
       }
     }
-    axios
-    .get(url, headers)
-    .then((res) => {
-      this.setState({ 
-        playlistMusicsName: res.data.result.tracks, 
-        renderMusicsPlaylists:this.state.playlistMusicsName.map((musics) => {
-          return (
-            <ButtonMusics 
-              key={musics.id}
-            >
-              {musics.name} - {musics.artist}
-            </ButtonMusics>
-          )
+
+    setTimeout(function(){
+      axios
+      .get(url, headers)
+      .then((res) => {
+        this.setState({ 
+          playlistMusicsName: res.data.result.tracks, 
+          renderMusicsPlaylists:this.state.playlistMusicsName.map((musics) => {
+            return (
+              <ButtonMusics 
+                key={musics.id}
+              >
+                {musics.name} - {musics.artist}
+              </ButtonMusics>
+            )
+          })
         })
       })
-    })
+    }, 3000)    
     .catch(() => {
       console.log("erro")
     })
@@ -137,16 +145,13 @@ export default class PlaylistCard extends React.Component {
 
   
 
-  renderMusics() {
-    return this.state.renderMusicsPlaylists
-    
-  } 
+  
 
 
   onClickButton = (event) => {
     this.onChangePlaylistsName(event);
-    this.onChangePlaylistsId(event)
-    this.getMusicsPlaylist(event.target.value)
+    
+    
   }
 
 
@@ -197,7 +202,26 @@ export default class PlaylistCard extends React.Component {
                   </div>
                 </TituloDelete>
                 {this.state.renderMusicsPlaylists}
-                <button onClick={() => this.getMusicsPlaylist(this.state.playlistsId)}>Adcionar música</button>
+                
+                {/* <addContainer>
+                  <h3>Adcionar música</h3>
+                  <label> 
+                    Nome da musica
+                    <input type="text" />
+                  </label>
+                  <label >
+                    Nome do artista
+                    <input type="text" />
+                  </label>
+                  <label > 
+                    Url
+                    <input type="text" />
+                  </label>
+                  <button>
+                    Criar
+                  </button>
+                </addContainer> */}
+                
               </MusicContainer>
             </ div> 
           </ PlaylistsMusicsContainer>

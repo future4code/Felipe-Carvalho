@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "styled-components"
-import CardMatchs from "../CardMatchs/CardMatchs";
+import CardMatches from "../CardMatches/CardMatches";
 
 const ContainerListMatch = styled.div`
     overflow-y: auto;
-    height: 84%;
+    height: 80%;
     width: 97%;
     padding-left: 10px;
     
 `
 
-const ListMatchs = (props) => {
+const ListMatches = (props) => {
     return(
         <ContainerListMatch>
-            <CardMatchs matches = {props.matches}/>
+            <CardMatches matches = {props.matches}/>
         </ContainerListMatch>
     )
 
 }
 
-export default ListMatchs;
+export default ListMatches;

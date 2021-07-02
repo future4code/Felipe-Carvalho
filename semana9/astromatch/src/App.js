@@ -1,10 +1,10 @@
 import React , { useState, useEffect } from "react";
 import styled from "styled-components"
 import { createGlobalStyle } from 'styled-components';
-import PeopleMatchs from "./container/PeopleMatchs/PeopleMatchs";
+import PeopleMatches from "./container/PeopleMatches/PeopleMatches";
 import LogoMatch from "./img/tinder.png"
 import Seta from "./img/seta-esquerda.png"
-import ListMatchs from "./container/ListMatchs/ListMatchs";
+import ListMatches from "./container/ListMatches/ListMatches";
 import axios from 'axios'
 
 const GlobalStyle = createGlobalStyle`
@@ -62,42 +62,46 @@ const BottonMatch = styled.button`
 `
 
 const ClearContainer = styled.div`
-  padding-left: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
  `
 
 const ButtonClear = styled.button`
-  background-color: #21002a;
+  background-color: #2e0042;
   border-radius: 10px;
-  padding: 10px;
-  border: none;
+  padding: 5px;
+  margin: 2px;
+  border: none ;
  `
 
 
 const App = () => {
-const [ page, setPage ] = useState("PeopleMatchs");
+const [ page, setPage ] = useState("PeopleMatches");
 const [ people, setPeople ] = useState([])
 
 
 const changePage = () => {
-  setPage("ListMatchs")
+  setPage("ListMatches")
 }
 
 const changePagePeople = () => {
-  setPage("PeopleMatchs")
+  setPage("PeopleMatches")
 }
 
 const RenderPage = () => {
   switch (page) {
-    case "PeopleMatchs":
+    case "PeopleMatches":
       return (
-        <PeopleMatchs 
+        <PeopleMatches 
           people = {people} 
           choosePeople={choosePeople}
         />
       );
-    case "ListMatchs":
+    case "ListMatches":
       return (
-        <ListMatchs/>
+        <ListMatches/>
       );
     default:
       return alert("Página não encontrada!")
@@ -106,7 +110,7 @@ const RenderPage = () => {
 
 const renderIcon = () => {
   switch (page) {
-    case "PeopleMatchs":
+    case "PeopleMatches":
       return (
         <IconImage 
           src={LogoMatch} 
@@ -114,7 +118,7 @@ const renderIcon = () => {
           onClick={changePage}  
         /> 
       );
-    case "ListMatchs":
+    case "ListMatches":
       return (
         <IconImage 
           src={Seta} 
@@ -188,14 +192,15 @@ const CLear = () => {
             </BottonMatch>
           </Header>  
           {RenderPage()}   
-        </MainContainer>    
-        <ClearContainer>
+          <ClearContainer>
           <ButtonClear
             onClick={CLear}
           >
              Limpar matches
           </ButtonClear>
         </ClearContainer>  
+        </MainContainer>    
+        
       </Container>
     </div>  
   );

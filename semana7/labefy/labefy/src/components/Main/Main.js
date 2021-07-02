@@ -65,8 +65,8 @@ export default class Main extends React.Component {
       .then((res) => {
         this.setState({playlistLists: res.data.result.list})
       })
-      .catch((err) => {
-        alert(err.response.data.message)
+      .catch(() => {
+        alert("erro")
       })
   }
 

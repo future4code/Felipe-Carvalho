@@ -24,7 +24,7 @@ const ImagemMatch = styled.img`
     margin-right: 25px;
 `
 
-const CardMatchs = () => {
+const CardMatches = () => {
     const [ matches, setMatches ] = useState([])
 
     const getMatches = () => {
@@ -60,4 +60,4 @@ const CardMatchs = () => {
 
 }
 
-export default CardMatchs;
+export default CardMatches;

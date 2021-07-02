@@ -72,7 +72,7 @@ const BottonContainer = styled.div`
  }
 `
 
-const PeopleMatchs = (props) => {
+const PeopleMatches = (props) => {
     return (
         <>
         <ContainerPeople>
@@ -92,4 +92,4 @@ const PeopleMatchs = (props) => {
     )
 }
 
-export default PeopleMatchs;
+export default PeopleMatches;
