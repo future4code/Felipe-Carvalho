@@ -1,7 +1,6 @@
 import React from "react";
 import { createGlobalStyle } from 'styled-components'
-import { Header } from "./components/Header";
-import { Router } from "./route/Router";
+import { Router } from "./router/Router";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -10,13 +9,26 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     width: 100vw;
-    background: #2b0065;
+    height: 100vh;
+    background: #0F0E38;
     color: white;
     font-family: 'Uchen', serif;
   }
   button{
     border: none;
     font-family: 'Uchen', serif;
+    background-color: #0F0E38;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 45px;
+    width: 100px;
+    transition: 0.8s;
+    cursor: pointer;
+    &:hover{
+      background-color: white;
+      color: black;
+    }
   }
   a{
     text-decoration: none;
@@ -30,7 +42,7 @@ function App() {
   return (
     <div >
       <GlobalStyle />
-      <Header />
+      
       <Router />
     </div>
   );

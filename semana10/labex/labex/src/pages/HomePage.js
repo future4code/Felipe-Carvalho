@@ -1,6 +1,7 @@
 import React from "react";
 import astronautImg from '../img/astronautaviagem.png'
 import styled from "styled-components";
+import { Header } from "../components/Header";
 import { useHistory } from 'react-router-dom'
 
 const HomePageContainer = styled.div`
@@ -28,12 +29,12 @@ const ButtonTravel = styled.button`
     transition: 0.5s;
     border-radius: 50%;
     height: 90px;
-    color: #619eff;
+    color: #74A0DE;
     font-weight: bold;
     font-size: 18px;
-    border: 4px solid #619eff;
+    border: 4px solid #74A0DE;
     &:hover{
-        background: #619eff;
+        background: #74A0DE;
         color: white;
         border: 1px solid white;
 
@@ -46,8 +47,8 @@ const ButtonTravel = styled.button`
 export const HomePage = () => {
     const history = useHistory();
 
-    const goToPageLoginPage = () => {
-        history.push("/login")
+    const goToAdminHomePage = () => {
+        history.push("/admin/trips/list")
     }
 
     const goToListTripsPage = () => {
@@ -55,19 +56,23 @@ export const HomePage = () => {
     }
 
   return (  
-    <HomePageContainer >
-        <div>             
-            <h1>Labex</h1>
-            <p>Sua viagem espacial com o melhor preço do universo!</p>
-            <ButtonsContainer>
-                <ButtonTravel onClick={goToListTripsPage}>Viagens</ButtonTravel>
-                <ButtonTravel onClick={goToPageLoginPage}>Area Admin</ButtonTravel>
-            </ButtonsContainer>
-        </div>
-        <div>
-            <ImageAstronaut src={astronautImg} alt="AstronautaViagem" />
-        </div>
+      <div>
+          <Header />
+          <HomePageContainer >
+            <div>             
+                <h1>Labex</h1>
+                <h3>Sua viagem espacial com o melhor preço do universo!</h3>
+                <ButtonsContainer>
+                    <ButtonTravel onClick={goToListTripsPage}>Viagens</ButtonTravel>
+                    <ButtonTravel onClick={goToAdminHomePage}>Area Admin</ButtonTravel>
+                </ButtonsContainer>
+            </div>
+            <div>
+                <ImageAstronaut src={astronautImg} alt="AstronautaViagem" />
+            </div>
     </HomePageContainer>
+      </div>
+    
   );
 }
 
