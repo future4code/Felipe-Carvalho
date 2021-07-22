@@ -8,12 +8,12 @@ const GlobalStyle = createGlobalStyle`
   *{
     padding: 0px;
     margin: 0px;
-    background-color: ${backgroundColor};
     font-family: 'Oxygen', sans-serif;
-    color: ${tertiaryColor};
     
     body{
       width: 100vw;
+      background-color: ${backgroundColor};
+      color: ${tertiaryColor};
     }
 
     a{
@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     button{
       border: none;
       cursor: pointer;
+      background-color: ${backgroundColor};
     }
   }
 `
