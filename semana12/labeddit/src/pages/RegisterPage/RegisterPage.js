@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { primaryColor, secundaryColor, tertiaryColor } from '../../constantes/colors'
+import { primaryColor } from '../../constantes/colors'
+import RegisterForm from './RegisterForm'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
+import { useHistory } from 'react-router-dom'
+import { goToLogin } from '../../routes/coordinates'
 
 const RegisterPageContainer = styled.div`
   display: flex;
@@ -11,27 +15,15 @@ const RegisterPageContainer = styled.div`
 const DescriptionDiv = styled.div`
   margin-top: 5%;
   width: 35%;
+  @media(max-width: 600px) {
+    width: 60%;
+  }
 ` 
 const TitleLogin = styled.h1`
   margin-bottom: 20px;
 `
 
-const InputLogin = styled.input`
-  background-color: ${secundaryColor};
-  border: none;
-  margin: 10px;
-  height: 50px;
-  width: 35%;
-`
-const ButtonRegister = styled.button`
-  background-color: ${primaryColor};
-  width: 35%;
-  height: 50px;
-  border-radius: 30px;
-  margin-top: 30px;
-  color: white;
-  font-size: 18px;
-`
+
 const ButtonBack = styled.button`
   height: 50px;
   margin-top: 30px;
@@ -40,16 +32,16 @@ const ButtonBack = styled.button`
 `
 
 const RegisterPage = () => {
+  useUnprotectedPage()
+  const history = useHistory()
+
   return (
     <RegisterPageContainer>
     <DescriptionDiv>
       <TitleLogin>Registre-se</TitleLogin>
     </DescriptionDiv>
-      <InputLogin type='text' placeholder='Informe seu nome:'/>
-      <InputLogin type='email' placeholder='Informe seu email:'/>
-      <InputLogin type='password' placeholder='Informe sua senha:'/>
-      <ButtonRegister>Criar conta</ButtonRegister>
-      <ButtonBack>Voltar</ButtonBack>
+    <RegisterForm />
+    <ButtonBack onClick={() => goToLogin(history)}>Voltar</ButtonBack>
   </RegisterPageContainer>
   );
 }

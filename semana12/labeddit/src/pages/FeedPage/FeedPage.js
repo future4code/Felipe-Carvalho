@@ -1,8 +1,11 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import PostCard from '../../components/PostCard'
 import {  secundaryColor, tertiaryColor } from '../../constantes/colors'
-
+import useProtectedPage from '../../hooks/useProtectedPage'
+import { getFeed } from '../../services/posts'
 
 const FeedContainer = styled.div`
   display: flex;
@@ -11,7 +14,7 @@ const FeedContainer = styled.div`
   justify-content: center;
 `
 
-const InputLogin = styled.input`
+const InputPost = styled.input`
   background-color: ${secundaryColor};
   border: none;
   margin: 10px;
@@ -24,15 +27,27 @@ const InputLogin = styled.input`
 
 
 const FeedPage = () => {
+  useProtectedPage()
+  const [ feeds, setFeeds] = useState([])
+  const [ isLoading, setIsloading ] = useState(false)
+
+  useEffect(() => {
+    getFeed(setFeeds, setIsloading)
+
+  },[])
+  console.log(feeds)
+
+  const renderFeeds = feeds.map((feed)=> {
+    return(
+      <PostCard key={feed.id} feed={feed}/>
+    )
+  })
+
   return (
     <FeedContainer >
-      <InputLogin type='email' placeholder='Criar seu post:'/>
-      <PostCard />
-      <PostCard />
-      <PostCard />
-      <PostCard />
-      <PostCard />
-      <PostCard />
+      <InputPost type='email' placeholder='Criar seu post:'/>
+      {isLoading && <div>carregando</div>}
+      {renderFeeds}
     </FeedContainer>
   );
 }

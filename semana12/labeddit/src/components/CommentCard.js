@@ -25,20 +25,19 @@ const ParagraphContainer = styled.div`
   margin-bottom: 5px;
 `
 
-const ButtonContainer = styled.button`
+const ButtonContainer = styled.div`
 
 `
 
 
-const PostCard = () => {
+const PostCard = (props) => {
+  console.log(props)
   return (
     <PostContainer>
-      <h3>Nome do usuario</h3>
+      <h3>{props.comments.username}</h3>
       <ParagraphContainer>
         <p>
-        is a long established fact that a reader will be distracted by the readable content of a
-        page when looking at its layout. 
-        The point of using Lorem Ipsum is that it has a
+        {props.comments.body}
         </p>
       </ParagraphContainer>   
       <ButtonContainer>

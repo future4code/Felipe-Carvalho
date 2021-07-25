@@ -24,7 +24,7 @@ export const Router = () => {
                     <FeedPage />
                 </Route>
             
-                <Route exact path={"/postpage"}>
+                <Route exact path={"/postpage/:postId"}>
                     <PostPage />
                 </Route>
             

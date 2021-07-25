@@ -1,14 +1,18 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { primaryColor, secundaryColor } from '../../constantes/colors'
 import useForm from '../../hooks/useForm'
+import { login } from '../../services/user'
 
  
 const FormLogin = styled.form`
   display: flex;
   flex-direction: column;
   width: 37%;
-
+  @media(max-width: 600px) {
+    width: 60%;
+  }
 `
 
 const InputLogin = styled.input`
@@ -30,10 +34,14 @@ const ButtonLogin = styled.button`
 
 const LoginForm = () => {
   const [form, onChange, clear] = useForm({email: "", password: ""})
+  const history = useHistory()
 
   const onSubmitForm = (event) => {
     event.preventDefault()
+    login(form, clear, history)
   }
+
+  
 
   return (
       <FormLogin onSubmit={onSubmitForm}>

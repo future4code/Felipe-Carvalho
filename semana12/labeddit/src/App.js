@@ -1,7 +1,7 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components';
 import {Router} from './routes/Router'
-import { backgroundColor, tertiaryColor } from './constantes/colors'
+import { backgroundColor, primaryColor, tertiaryColor } from './constantes/colors'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
 
     a{
       text-decoration: none;
+      color: ${primaryColor};
     }
 
     button{

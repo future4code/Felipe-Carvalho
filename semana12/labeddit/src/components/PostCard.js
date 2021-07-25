@@ -1,6 +1,7 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import {  secundaryColor, tertiaryColor } from '../constantes/colors'
+import {  secundaryColor } from '../constantes/colors'
 
 
 
@@ -13,10 +14,6 @@ const PostContainer = styled.div`
   background-color: ${secundaryColor};
   width: 50%;
   margin: 15px;
-  transition: 0.5s;
-  &:hover{
-    border: 1px solid ${tertiaryColor};
-  }
 `
 
 const ParagraphContainer = styled.div`
@@ -25,26 +22,40 @@ const ParagraphContainer = styled.div`
   margin-bottom: 5px;
 `
 
-const ButtonContainer = styled.button`
-
+const ButtonContainer = styled.div`
+  display: flex;
+  align-self: flex-end;
+`
+const LikeButton = styled.button`
+  margin-right: 15px;
+  margin-bottom: 5px;
+  background-color: transparent;
 `
 
+const CommentButton = styled.button`
+  margin-right: 15px;
+  margin-bottom: 5px;
+  background-color: transparent;
+`
 
-const PostCard = () => {
+const PostCard = (props) => {
+  const history = useHistory()
+
+  const handleGoToPost = () => {
+    history.push(`/postpage/${props.feed.id}`)
+  }
   return (
     <PostContainer>
-      <h3>Nome do usuario</h3>
+      <h3>{props.feed.title}</h3>
+      <i>{props.feed.username}</i>
       <ParagraphContainer>
-        <p>
-        is a long established fact that a reader will be distracted by the readable content of a
-        page when looking at its layout. 
-        The point of using Lorem Ipsum is that it has a
-        </p>
+        <p>{props.feed.body}</p>
       </ParagraphContainer>   
       <ButtonContainer>
-          <button>Comentario</button>
-          <button>Like</button>
-          <button>Dislike</button>
+          <CommentButton onClick={handleGoToPost}>Comentar</CommentButton>
+          <LikeButton>+</LikeButton>
+          <LikeButton>{props.feed.voteSum}</LikeButton>
+          <LikeButton>-</LikeButton>
       </ButtonContainer>   
     </PostContainer>
   );

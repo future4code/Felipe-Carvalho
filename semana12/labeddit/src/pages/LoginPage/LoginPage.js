@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { primaryColor } from '../../constantes/colors'
 import LoginForm from './LoginForm'
 import {goToSignUp} from '../../routes/coordinates'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 const LoginPageContainer = styled.div`
   display: flex;
@@ -14,6 +15,9 @@ const LoginPageContainer = styled.div`
 const DescriptionDiv = styled.div`
   margin-top: 5%;
   width: 35%;
+  @media(max-width: 600px) {
+    width: 60%;
+  }
 ` 
 
 const TitleLogin = styled.h1`
@@ -29,6 +33,7 @@ const ButtonRegister = styled.button`
 `
 
 const LoginPage = () => {
+  useUnprotectedPage()
   const history = useHistory()
 
   return (
