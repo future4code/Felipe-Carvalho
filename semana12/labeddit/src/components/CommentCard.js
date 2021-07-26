@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import {  secundaryColor, tertiaryColor } from '../constantes/colors'
-
+import like from '../assets/like.png'
+import dislike from '../assets/dislike.png'
 
 
 
@@ -26,12 +27,33 @@ const ParagraphContainer = styled.div`
 `
 
 const ButtonContainer = styled.div`
+  display: flex;
+  align-self: flex-end; 
+`
 
+const CommentButton = styled.button`
+  margin-right: 15px;
+  margin-bottom: 5px;
+  background-color: transparent;
+`
+
+const CommentVotes = styled.span`
+  margin-right: 15px;
+  margin-bottom: 5px;
+  background-color: transparent;
 `
 
 
 const PostCard = (props) => {
-  console.log(props)
+
+  const handleUpVote = () => {
+    props.handleCommentVote(props.comments.id, 1)
+  }
+
+  const handleDownVote = () => {
+    props.handleCommentVote(props.comments.id, -1)
+  }
+
   return (
     <PostContainer>
       <h3>{props.comments.username}</h3>
@@ -41,8 +63,9 @@ const PostCard = (props) => {
         </p>
       </ParagraphContainer>   
       <ButtonContainer>
-          <button>Like</button>
-          <button>Dislike</button>
+          <CommentButton onClick={handleUpVote}><img src={like} width="25px" alt="like" /></CommentButton>
+          <CommentVotes>{props.comments.voteSum}</CommentVotes>
+          <CommentButton onClick={handleDownVote}><img src={dislike} width="25px" alt="dislike" /></CommentButton>
       </ButtonContainer>   
     </PostContainer>
   );

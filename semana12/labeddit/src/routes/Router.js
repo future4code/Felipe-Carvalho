@@ -6,8 +6,12 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage"
  
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { Header } from "../components/Header"
+import { useState } from "react"
 
 export const Router = () => {
+    const [ feeds, setFeeds] = useState([])
+
+
     return (
         <BrowserRouter>
             <Header />
@@ -21,11 +25,11 @@ export const Router = () => {
                 </Route>
             
                 <Route exact path={"/"}>
-                    <FeedPage />
+                    <FeedPage feeds={feeds} setFeeds={setFeeds} />
                 </Route>
             
                 <Route exact path={"/postpage/:postId"}>
-                    <PostPage />
+                    <PostPage feeds={feeds} setFeeds={setFeeds}/>
                 </Route>
             
                 <Route >

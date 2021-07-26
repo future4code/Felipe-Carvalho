@@ -2,7 +2,9 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import {  secundaryColor } from '../constantes/colors'
-
+import like from '../assets/like.png'
+import dislike from '../assets/dislike.png'
+import acess from '../assets/entrar.png'
 
 
 
@@ -44,6 +46,14 @@ const PostCard = (props) => {
   const handleGoToPost = () => {
     history.push(`/postpage/${props.feed.id}`)
   }
+
+  const handleUpVote = () => {
+    props.handleVotePost(props.feed.id, 1)
+  }
+  const handleDownVote = () => {
+    props.handleVotePost(props.feed.id, -1)
+  }
+
   return (
     <PostContainer>
       <h3>{props.feed.title}</h3>
@@ -51,11 +61,17 @@ const PostCard = (props) => {
       <ParagraphContainer>
         <p>{props.feed.body}</p>
       </ParagraphContainer>   
-      <ButtonContainer>
-          <CommentButton onClick={handleGoToPost}>Comentar</CommentButton>
-          <LikeButton>+</LikeButton>
-          <LikeButton>{props.feed.voteSum}</LikeButton>
-          <LikeButton>-</LikeButton>
+      <ButtonContainer>      
+          <LikeButton onClick={handleUpVote}><img src={like} width="25px" alt="like" /></LikeButton>
+          <LikeButton >{props.feed.voteSum}</LikeButton>
+          <LikeButton onClick={handleDownVote}><img src={dislike} width="25px" alt="dislike" /></LikeButton>
+          {!props.hideComment && (
+          <CommentButton 
+          onClick={handleGoToPost}
+          >
+            <img src={acess} alt="acess" width="43px"/>
+          </CommentButton>
+        )}
       </ButtonContainer>   
     </PostContainer>
   );

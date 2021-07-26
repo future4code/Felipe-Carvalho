@@ -4,21 +4,25 @@ import { primaryColor } from '../constantes/colors'
 import {Link, useHistory} from 'react-router-dom'
 import { useState } from 'react'
 import { goToLogin } from '../routes/coordinates'
+import logoreddit from '../assets/logoreddit2.png'
 
 const HeaderContainer = styled.div`
     height: 70px;
     display: grid;
-    grid-template-columns: 100px 150px  1fr  150px 100px;
+    grid-template-columns: 100px 200px  1fr  150px 100px;
     width: 100vw;
     align-items: center;
 `
 
 const LogoContainer = styled.div`
     grid-column-start: 2;
+    
 `
 
 const Logo = styled.h1`
     color: ${primaryColor};
+    display: inline-block;
+    padding: 4px;
 `
 
 const LogContainer = styled.div`
@@ -56,7 +60,10 @@ export const Header = () =>{
     return (
         <HeaderContainer>
             <LogoContainer>
-                <Link to="/"><Logo>labeddit</Logo></Link>
+                <Link to="/">
+                    <img src={logoreddit} alt="reddit" />
+                    <Logo>labeddit</Logo>
+                </Link>
             </LogoContainer>
             <LogContainer>
                 <ButtonLog onClick={rightButoonAction}>{rightButtonText}</ButtonLog>
