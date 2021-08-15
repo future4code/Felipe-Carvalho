@@ -1,67 +1,54 @@
-import express, { Request, Response } from 'express'
+import express, { Express, Request, Response } from 'express'
 import cors from 'cors'
+import { accounts } from './data'
 
-type User = {
-  name: string,
-  cpf: string,
-  birthDate: string,
-  balance: number,
-  age: number,
-}
-
-// Mock simulando um array de usuários no Banco de Dados
-let users: User[] = [
-  {
-    name: "Alice",
-    cpf: "000.000.000.01",
-    birthDate: "ADMIN",
-    balance: 1000.00,
-    age: 19
-  },
-  {
-    name: "Bob",
-    cpf: "000.000.000.02",
-    birthDate: "NORMAL",
-    balance: 1000.00,
-    age: 36
-  },
-  {
-    name: "Coragem",
-    cpf: "000.000.000.03",
-    birthDate: "NORMAL",
-    balance: 1000.00,
-    age: 21
-  },
-  {
-    name: "Dory",
-    cpf: "000.000.000.04",
-    birthDate: "NORMAL",
-    balance: 1000.00,
-    age: 20
-  },
-  {
-    name: "Elsa",
-    cpf: "000.000.000.05",
-    birthDate: "ADMIN",
-    balance: 1000.00,
-    age: 25
-  },
-  {
-    name: "Fred",
-    cpf: "000.000.000.06",
-    birthDate: "ADMIN",
-    balance: 1000.00,
-    age: 60
-  }
-]
-
-const app = express()
+const app: Express = express()
 app.use(express.json())
 app.use(cors())
 
-// Para testar se o servidor está tratando os endpoints corretamente
 app.get("/users", (req: Request, res: Response) => {
-  res.status(200).send(users)
+  let errorCode: number = 400;
+  try {
+    if (!accounts.length) {
+      res.statusCode = 404
+      throw new Error("Nenhuma conta encontrada")
+    }
+    res.status(200).send(accounts)
+  } catch (error) {
+    res.send(error.message)
+  }
+})
+
+app.post("/users", (req: Request, res: Response) => {
+  try {
+    const { name, cpf, birthDateAsString } = req.body
+
+    const [day, month, year] = birthDateAsString.split('/')
+
+    const birthDate: Date = new Date(`${year}-${month}-${day}`)
+
+    const ageInMillisseconds: number = Date.now() - birthDate.getTime()
+
+    const ageInYears: number = ageInMillisseconds / 1000 / 60 / 60 / 24 / 365
+
+    if (ageInYears < 18) {
+      res.statusCode = 406
+      throw new Error("Idade deve ser maior que 18 anos")
+    }
+
+    accounts.push({
+      name,
+      cpf,
+      birthDate,
+      balance: 0,
+      statement: []
+    })
+
+    res.status(201).send("Conta cirada com sucesso")
+  } catch (error) {
+    console.log(error)
+    res.send(error.message)
+  }
 })
 
 app.listen(3003, () => {
