@@ -1,0 +1,13 @@
+{
+  "name": "aula41-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "somar": "clear && node ./src/somarDoisNumeros.js",
+    "search-country-by-name": "clear && node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
